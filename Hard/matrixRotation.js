@@ -17,7 +17,7 @@ function processData(input) {
     var initn = 0;
     var posArr = [];
     var rotMatrix = [];
-    var circles = Math.ceil(m < n ? m : n / 2);
+    var circles = Math.ceil((m < n ? m : n) / 2);
     for (var i = 0; i < circles; i++) {
         var count = 0;
         var tempm = initm;
@@ -29,16 +29,14 @@ function processData(input) {
             l.x = tempm;
             l.y = tempn;
             innerArr.push(l);
-            if (tempm == initm && tempn == initn) {
-                tempm++;
-            } else if (tempm > tempn && tempn == initn && tempm < m - 1) {
-                tempm++
-            } else if (tempm == m - 1 && tempn < n - 1 || tempn == initn) {
-                tempn++;
-            } else if (tempn == n - 1 && tempm < tempn && tempm > initm || tempm == m - 1) {
-                tempm--;
-            } else if (tempm == initm && tempn > tempm && tempn > initn) {
-                tempn--;
+            if(tempn == initn && tempm < m -1){
+	           tempm++;
+            }else if(tempm == m-1 && tempn < n-1){
+	           tempn++;
+            }else if(tempn == n-1 && tempm > initm){
+	           tempm--;
+            }else if(tempm == initm && tempn > initn ){
+	           tempn--
             }
             count++;
         } while (count < limit);
