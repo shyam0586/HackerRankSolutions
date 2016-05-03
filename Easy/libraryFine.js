@@ -1,6 +1,7 @@
 # Library Fine
 
 https://www.hackerrank.com/challenges/library-fine
+
 process.stdin.resume();
 process.stdin.setEncoding('ascii');
 
